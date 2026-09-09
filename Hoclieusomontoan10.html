@@ -80,13 +80,6 @@
             margin-bottom: 5px;
         }
 
-        .sub-example {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #94a3b8;
-            font-style: italic;
-        }
-
         /* Lưới hiển thị các chương */
         .chapter-grid {
             display: grid;
@@ -162,7 +155,7 @@
             position: relative;
             overflow: hidden;
             white-space: normal;
-            cursor: pointer; /* Thêm con trỏ bàn tay */
+            cursor: pointer;
         }
 
         .lesson-link:hover {
@@ -304,11 +297,12 @@
             <div class="glass-card theme-blue">
                 <h2 class="chapter-title">CHƯƠNG III. HỆ THỨC LƯỢNG TRONG TAM GIÁC</h2>
                 <div class="lesson-list">
-                    <a class="lesson-link" onclick="navigateAndStore('link-bai-5.html')">
+                    <!-- LINK BÀI 5 ĐÃ ĐƯỢC CẬP NHẬT TẠI ĐÂY -->
+                    <a class="lesson-link" onclick="navigateAndStore('https://vuthanhbg.github.io/Hoclieuso/T10C3-B01(5)-gia-tri-lg-goc-tu-0-den-180-do.html')">
                         <span class="lesson-name">Bài 5. Giá trị lượng giác của một góc từ 0° đến 180°</span>
                         <span class="page-num">33</span>
                     </a>
-                    <a class="lesson-link" onclick="navigateAndStore('link-bai-6.html')">
+                    <a class="lesson-link" onclick="navigateAndStore('https://vuthanhbg.github.io/Hoclieuso/T10C3-B01(5)-gia-tri-lg-goc-tu-0-den-180-do.html')">
                         <span class="lesson-name">Bài 6. Hệ thức lượng trong tam giác</span>
                         <span class="page-num">38</span>
                     </a>
@@ -502,12 +496,13 @@
         </div>
 
         <footer>
-            <!-- Điều hướng có xử lý JS -->
+            <!-- Điều hướng có xử lý JS và các link mới -->
             <div class="footer-nav">
-                <!-- Đã cập nhật link Trang chủ mở tại tab hiện tại -->
                 <a href="https://vuthanhbg.github.io/Hoclieuso/Hoclieusomontoan.html">🏠 Trang chủ</a>
                 <button onclick="goBack()">⬅ Trang trước</button>
                 <button onclick="goForward()">Trang sau ➡</button>
+                <a href="https://vuthanhbg.github.io/Hoclieuso/tainguyen.html">🔗 Tài nguyên</a>
+                <a href="https://vuthanhbg.github.io/Hoclieuso/dangky.html">🔗 Đăng ký</a>
             </div>
 
             <!-- Bản quyền Tác giả -->
@@ -542,8 +537,8 @@
             sessionStorage.setItem('navHistory', JSON.stringify(history));
             sessionStorage.setItem('currentIndex', history.length - 1);
             
-            // Chuyển trang trực tiếp trên tab hiện tại (không dùng _blank)
-            window.location.href = targetUrl;
+            // Chuyển trang trực tiếp trên tab hiện tại (Sử dụng replace để THAY THẾ/ĐÓNG trang cũ)
+            window.location.replace(targetUrl);
         }
 
         // Hàm lùi về trang liền trước
@@ -554,7 +549,7 @@
             if (history && currentIndex > 0) {
                 currentIndex--;
                 sessionStorage.setItem('currentIndex', currentIndex);
-                window.location.href = history[currentIndex];
+                window.location.replace(history[currentIndex]);
             } else {
                 alert("Đây là trang đầu tiên, không có trang trước!");
             }
@@ -568,7 +563,7 @@
             if (history && currentIndex < history.length - 1) {
                 currentIndex++;
                 sessionStorage.setItem('currentIndex', currentIndex);
-                window.location.href = history[currentIndex];
+                window.location.replace(history[currentIndex]);
             } else {
                 alert("Bạn chưa mở trang tiếp theo nào!");
             }
