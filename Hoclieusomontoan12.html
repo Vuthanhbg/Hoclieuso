@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mục Lục Học Liệu Số - Toán 12 (Toàn Tập)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 20px;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: rgba(99, 102, 241, 0.15);
+            filter: blur(120px);
+            border-radius: 50%;
+            top: 5%;
+            left: 5%;
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: rgba(236, 72, 153, 0.15);
+            filter: blur(100px);
+            border-radius: 50%;
+            bottom: 10%;
+            right: 10%;
+            z-index: -1;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px; 
+        }
+
+        .header-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            background: linear-gradient(to right, #60a5fa, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #cbd5e1;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 5px;
+        }
+
+        /* Lưới hiển thị các chương */
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+            align-items: stretch;
+        }
+
+        @media (max-width: 768px) {
+            .chapter-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Khối hộp Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 20px 15px; 
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            height: 100%; 
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .chapter-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .theme-blue .chapter-title { color: #60a5fa; border-bottom: 2px dashed rgba(96, 165, 250, 0.3); }
+        .theme-pink .chapter-title { color: #f472b6; border-bottom: 2px dashed rgba(244, 114, 182, 0.3); }
+        .theme-yellow .chapter-title { color: #fcd34d; border-bottom: 2px dashed rgba(252, 211, 77, 0.3); }
+        .theme-purple .chapter-title { color: #c084fc; border-bottom: 2px dashed rgba(192, 132, 252, 0.3); }
+
+        .lesson-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; 
+            flex-grow: 1;
+        }
+
+        .lesson-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 12px 15px; 
+            border-radius: 8px; 
+            text-decoration: none;
+            color: #e2e8f0;
+            font-size: 0.85rem; 
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            white-space: normal;
+            cursor: pointer;
+        }
+
+        .lesson-link:hover {
+            color: #ffffff;
+            transform: translateX(4px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-blue .lesson-link:hover { background: linear-gradient(135deg, rgba(96, 165, 250, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%); border-color: rgba(96, 165, 250, 0.4); }
+        .theme-pink .lesson-link:hover { background: linear-gradient(135deg, rgba(244, 114, 182, 0.2) 0%, rgba(236, 72, 153, 0.1) 100%); border-color: rgba(244, 114, 182, 0.4); }
+        .theme-yellow .lesson-link:hover { background: linear-gradient(135deg, rgba(252, 211, 77, 0.2) 0%, rgba(245, 158, 11, 0.1) 100%); border-color: rgba(252, 211, 77, 0.4); }
+        .theme-purple .lesson-link:hover { background: linear-gradient(135deg, rgba(192, 132, 252, 0.2) 0%, rgba(168, 85, 247, 0.1) 100%); border-color: rgba(192, 132, 252, 0.4); }
+
+        .lesson-name {
+            flex-grow: 1;
+            padding-right: 10px;
+            line-height: 1.4;
+        }
+
+        .page-num {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            min-width: 35px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .theme-blue .page-num { color: #93c5fd; }
+        .theme-pink .page-num { color: #f9a8d4; }
+        .theme-yellow .page-num { color: #fde68a; }
+        .theme-purple .page-num { color: #d8b4fe; }
+
+        /* Chân trang */
+        footer {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            text-align: center;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .footer-nav a, .footer-nav button {
+            text-decoration: none;
+            color: #f8fafc;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px; 
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer-nav a:hover, .footer-nav button:hover {
+            background: rgba(99, 102, 241, 0.3);
+            border-color: rgba(99, 102, 241, 0.6);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .author-text {
+            font-weight: bold;
+            color: #cbd5e1;
+            padding: 10px 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-title">
+            <h1>HỆ THỐNG MÔ PHỎNG & HỌC LIỆU SỐ</h1>
+            <div class="subtitle">MỤC LỤC SÁCH GIÁO KHOA TOÁN 12 (TOÀN TẬP)</div>
+        </div>
+        
+        <div class="chapter-grid">
+            
+            <!-- Chương 1 -->
+            <div class="glass-card theme-pink">
+                <h2 class="chapter-title">CHƯƠNG I. ỨNG DỤNG ĐẠO HÀM ĐỂ KHẢO SÁT VÀ VẼ ĐỒ THỊ HÀM SỐ</h2>
+                <div class="lesson-list">
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-1.html')">
+                        <span class="lesson-name">Bài 1. Tính đơn điệu và cực trị của hàm số</span>
+                        <span class="page-num">5</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-2.html')">
+                        <span class="lesson-name">Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số</span>
+                        <span class="page-num">15</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-3.html')">
+                        <span class="lesson-name">Bài 3. Đường tiệm cận của đồ thị hàm số</span>
+                        <span class="page-num">20</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-4.html')">
+                        <span class="lesson-name">Bài 4. Khảo sát sự biến thiên và vẽ đồ thị của hàm số</span>
+                        <span class="page-num">26</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-5.html')">
+                        <span class="lesson-name">Bài 5. Ứng dụng đạo hàm để giải quyết một số vấn đề liên quan đến thực tiễn</span>
+                        <span class="page-num">33</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bt-chuong-1.html')">
+                        <span class="lesson-name">Bài tập cuối chương I</span>
+                        <span class="page-num">42</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Chương 2 -->
+            <div class="glass-card theme-blue">
+                <h2 class="chapter-title">CHƯƠNG II. VECTƠ VÀ HỆ TRỤC TOẠ ĐỘ TRONG KHÔNG GIAN</h2>
+                <div class="lesson-list">
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-6.html')">
+                        <span class="lesson-name">Bài 6. Vectơ trong không gian</span>
+                        <span class="page-num">45</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-7.html')">
+                        <span class="lesson-name">Bài 7. Hệ trục toạ độ trong không gian</span>
+                        <span class="page-num">60</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-8.html')">
+                        <span class="lesson-name">Bài 8. Biểu thức toạ độ của các phép toán vectơ</span>
+                        <span class="page-num">67</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bt-chuong-2.html')">
+                        <span class="lesson-name">Bài tập cuối chương II</span>
+                        <span class="page-num">73</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Chương 3 -->
+            <div class="glass-card theme-yellow">
+                <h2 class="chapter-title">CHƯƠNG III. CÁC SỐ ĐẶC TRƯNG ĐO MỨC ĐỘ PHÂN TÁN CỦA MẪU SỐ LIỆU GHÉP NHÓM</h2>
+                <div class="lesson-list">
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-9.html')">
+                        <span class="lesson-name">Bài 9. Khoảng biến thiên và khoảng tứ phân vị</span>
+                        <span class="page-num">75</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-10.html')">
+                        <span class="lesson-name">Bài 10. Phương sai và độ lệch chuẩn</span>
+                        <span class="page-num">80</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bt-chuong-3.html')">
+                        <span class="lesson-name">Bài tập cuối chương III</span>
+                        <span class="page-num">85</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- HĐTN Tập 1 -->
+            <div class="glass-card theme-purple">
+                <h2 class="chapter-title">HOẠT ĐỘNG THỰC HÀNH TRẢI NGHIỆM (Tập 1)</h2>
+                <div class="lesson-list">
+                    <a class="lesson-link" onclick="navigateAndStore('lik-hd-1.html')">
+                        <span class="lesson-name">Khảo sát và vẽ đồ thị hàm số với phần mềm GeoGebra</span>
+                        <span class="page-num">87</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-hd-2.html')">
+                        <span class="lesson-name">Vẽ vectơ tổng của ba vectơ trong không gian bằng phần mềm GeoGebra</span>
+                        <span class="page-num">92</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-hd-3.html')">
+                        <span class="lesson-name">Độ dài gang tay (gang tay của bạn dài bao nhiêu?)</span>
+                        <span class="page-num">94</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Chương 4 -->
+            <div class="glass-card theme-pink">
+                <h2 class="chapter-title">CHƯƠNG IV. NGUYÊN HÀM VÀ TÍCH PHÂN</h2>
+                <div class="lesson-list">
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-11.html')">
+                        <span class="lesson-name">Bài 11. Nguyên hàm</span>
+                        <span class="page-num">4</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-12.html')">
+                        <span class="lesson-name">Bài 12. Tích phân</span>
+                        <span class="page-num">12</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-13.html')">
+                        <span class="lesson-name">Bài 13. Ứng dụng hình học của tích phân</span>
+                        <span class="page-num">19</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bt-chuong-4.html')">
+                        <span class="lesson-name">Bài tập cuối chương IV</span>
+                        <span class="page-num">27</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Chương 5 -->
+            <div class="glass-card theme-blue">
+                <h2 class="chapter-title">CHƯƠNG V. PHƯƠNG PHÁP TOẠ ĐỘ TRONG KHÔNG GIAN</h2>
+                <div class="lesson-list">
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-14.html')">
+                        <span class="lesson-name">Bài 14. Phương trình mặt phẳng</span>
+                        <span class="page-num">29</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-15.html')">
+                        <span class="lesson-name">Bài 15. Phương trình đường thẳng trong không gian</span>
+                        <span class="page-num">41</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-16.html')">
+                        <span class="lesson-name">Bài 16. Công thức tính góc trong không gian</span>
+                        <span class="page-num">50</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-17.html')">
+                        <span class="lesson-name">Bài 17. Phương trình mặt cầu</span>
+                        <span class="page-num">54</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bt-chuong-5.html')">
+                        <span class="lesson-name">Bài tập cuối chương V</span>
+                        <span class="page-num">61</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Chương 6 -->
+            <div class="glass-card theme-yellow">
+                <h2 class="chapter-title">CHƯƠNG VI. XÁC SUẤT CÓ ĐIỀU KIỆN</h2>
+                <div class="lesson-list">
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-18.html')">
+                        <span class="lesson-name">Bài 18. Xác suất có điều kiện</span>
+                        <span class="page-num">64</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bai-19.html')">
+                        <span class="lesson-name">Bài 19. Công thức xác suất toàn phần và công thức Bayes</span>
+                        <span class="page-num">72</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-bt-chuong-6.html')">
+                        <span class="lesson-name">Bài tập cuối chương VI</span>
+                        <span class="page-num">79</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- HĐTN Tập 2 -->
+            <div class="glass-card theme-purple">
+                <h2 class="chapter-title">HOẠT ĐỘNG THỰC HÀNH TRẢI NGHIỆM (Tập 2)</h2>
+                <div class="lesson-list">
+                    <a class="lesson-link" onclick="navigateAndStore('lik-hd-4.html')">
+                        <span class="lesson-name">Tính nguyên hàm và tích phân với phần mềm GeoGebra. Tính gần đúng tích phân bằng phương pháp hình thang</span>
+                        <span class="page-num">81</span>
+                    </a>
+                    <a class="lesson-link" onclick="navigateAndStore('lik-hd-5.html')">
+                        <span class="lesson-name">Vẽ đồ hoạ 3D với phần mềm GeoGebra</span>
+                        <span class="page-num">85</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <!-- Menu Điều hướng và lưu trữ tab hiện tại -->
+            <div class="footer-nav">
+                <a href="https://vuthanhbg.github.io/Hoclieuso/Hoclieusomontoan.html">🏠 Trang chủ</a>
+                <button onclick="goBack()">⬅ Trang trước</button>
+                <button onclick="goForward()">Trang sau ➡</button>
+                <a href="https://vuthanhbg.github.io/Hoclieuso/tainguyen.html">🔗 Tài nguyên</a>
+                <a href="https://vuthanhbg.github.io/Hoclieuso/dangky.html">🔗 Đăng ký</a>
+            </div>
+
+            <!-- Bản quyền Tác giả -->
+            <div class="author-text">
+                Tác giả: Vũ Trung Thành - Tổ Toán-Tin, THPT Bình Giang, Zalo: 0979791802
+            </div>
+        </footer>
+    </div>
+
+    <!-- Script xử lý Lịch sử duyệt Web Đóng/Mở đè trang -->
+    <script>
+        function navigateAndStore(targetUrl) {
+            let history = JSON.parse(sessionStorage.getItem('navHistory')) || [];
+            let currentIndex = parseInt(sessionStorage.getItem('currentIndex')) || 0;
+            
+            history = history.slice(0, currentIndex + 1);
+            
+            if (history.length === 0) {
+                history.push(window.location.href);
+            }
+            history.push(targetUrl);
+            
+            sessionStorage.setItem('navHistory', JSON.stringify(history));
+            sessionStorage.setItem('currentIndex', history.length - 1);
+            
+            // Đóng trang hiện tại và mở trang mới đè lên tab
+            window.location.replace(targetUrl);
+        }
+
+        function goBack() {
+            let history = JSON.parse(sessionStorage.getItem('navHistory'));
+            let currentIndex = parseInt(sessionStorage.getItem('currentIndex'));
+
+            if (history && currentIndex > 0) {
+                currentIndex--;
+                sessionStorage.setItem('currentIndex', currentIndex);
+                window.location.replace(history[currentIndex]);
+            } else {
+                alert("Đây là trang đầu tiên, không có trang trước!");
+            }
+        }
+
+        function goForward() {
+            let history = JSON.parse(sessionStorage.getItem('navHistory'));
+            let currentIndex = parseInt(sessionStorage.getItem('currentIndex'));
+
+            if (history && currentIndex < history.length - 1) {
+                currentIndex++;
+                sessionStorage.setItem('currentIndex', currentIndex);
+                window.location.replace(history[currentIndex]);
+            } else {
+                alert("Bạn chưa mở trang tiếp theo nào!");
+            }
+        }
+    </script>
+</body>
+</html>
