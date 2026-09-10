@@ -54,7 +54,6 @@
 
         .container {
             width: 100%;
-            /* Thu gọn max-width để 3 ô hiển thị vừa vặn, không bị bè ngang */
             max-width: 900px; 
             text-align: center;
         }
@@ -113,23 +112,28 @@
             border-color: rgba(255, 255, 255, 0.35);
         }
         
+        /* Cập nhật khung ảnh để hiển thị bìa sách chân thực, không bị cắt */
         .image-frame {
             width: 100%;
-            height: 130px; /* Tăng nhẹ chiều cao ảnh cho cân đối với 3 ô */
+            height: 220px; /* Tăng chiều cao để vừa vặn bìa sách dọc */
             border-radius: 10px;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.05);
             margin-bottom: 12px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
         }
         
         .image-frame img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* Giữ nguyên tỷ lệ ảnh bìa, không bị méo hay cắt xén */
             transition: transform 0.3s ease;
-            background: url('https://via.placeholder.com/600x300/1e293b/ffffff?text=Đang+tải+ảnh...') center/cover no-repeat;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4)); /* Thêm bóng đổ nhẹ cho bìa sách nổi bật */
         }
         
         .glass-box:hover .image-frame img {
@@ -247,34 +251,37 @@
         <div class="subtitle">MÔN TOÁN BẬC TRUNG HỌC PHỔ THÔNG</div>
         
         <div class="card-grid">
-            <!-- Ô 1 -->
+            <!-- Ô 1: Toán 10 -->
             <div class="glass-box">
-                <div class="image-frame"><img alt="Minh họa"></div>
+                <div class="image-frame">
+                    <img src="https://vuthanhbg.github.io/Hoclieuso/Bia-sach-10.jpg" alt="Mô phỏng SGK Toán 10">
+                </div>
                 <h3>Mô phỏng SGK Toán 10</h3>
                 <div class="btn-group">
-                    <!-- Đã bỏ target="_blank" để mở trang ngay tại tab hiện tại -->
                     <a href="https://vuthanhbg.github.io/Hoclieuso/Hoclieusomontoan10.html" class="btn-3d sim-link">Xem mô phỏng</a>
                     <button class="btn-3d orange" onclick="copyDynamicLink(this)">Sao chép link</button>
                 </div>
             </div>
 
-            <!-- Ô 2 -->
+            <!-- Ô 2: Toán 11 -->
             <div class="glass-box">
-                <div class="image-frame"><img alt="Minh họa"></div>
+                <div class="image-frame">
+                    <img src="https://vuthanhbg.github.io/Hoclieuso/Bia-sach-11.jpg" alt="Mô phỏng SGK Toán 11">
+                </div>
                 <h3>Mô phỏng SGK Toán 11</h3>
                 <div class="btn-group">
-                    <!-- Đã bỏ target="_blank" để mở trang ngay tại tab hiện tại -->
                     <a href="https://vuthanhbg.github.io/Hoclieuso/Hoclieusomontoan11.html" class="btn-3d pink sim-link">Xem mô phỏng</a>
                     <button class="btn-3d orange" onclick="copyDynamicLink(this)">Sao chép link</button>
                 </div>
             </div>
 
-            <!-- Ô 3 -->
+            <!-- Ô 3: Toán 12 -->
             <div class="glass-box">
-                <div class="image-frame"><img alt="Minh họa"></div>
+                <div class="image-frame">
+                    <img src="https://vuthanhbg.github.io/Hoclieuso/Bia-sach-12.jpg" alt="Mô phỏng SGK Toán 12">
+                </div>
                 <h3>Mô phỏng SGK Toán 12</h3>
                 <div class="btn-group">
-                    <!-- Đã bỏ target="_blank" để mở trang ngay tại tab hiện tại -->
                     <a href="https://vuthanhbg.github.io/Hoclieuso/Hoclieusomontoan12.html" class="btn-3d green sim-link">Xem mô phỏng</a>
                     <button class="btn-3d orange" onclick="copyDynamicLink(this)">Sao chép link</button>
                 </div>
@@ -284,7 +291,6 @@
         <footer>
             <!-- Khu vực 5 liên kết điều hướng -->
             <div class="footer-nav">
-                <!-- Đã cập nhật link Trang chủ -->
                 <a href="https://vuthanhbg.github.io/Hoclieuso/Hoclieusomontoan.html">🏠 Trang chủ</a>
                 <a href="javascript:history.back()">⬅ Trang trước</a>
                 <a href="javascript:history.forward()">Trang sau ➡</a>
@@ -299,22 +305,8 @@
         </footer>
     </div>
 
-    <!-- Script thực hiện tự động lấy liên kết & chụp ảnh tự động -->
+    <!-- Script thực hiện sao chép liên kết (Đã gỡ bỏ phần tự tải ảnh mờ) -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const boxes = document.querySelectorAll('.glass-box');
-            
-            boxes.forEach(box => {
-                const linkElement = box.querySelector('.sim-link');
-                const imgElement = box.querySelector('.image-frame img');
-
-                if (linkElement && imgElement && linkElement.href && !linkElement.href.includes("javascript:void")) {
-                    const url = linkElement.href;
-                    imgElement.src = "https://image.thum.io/get/width/600/crop/300/" + url;
-                }
-            });
-        });
-
         function copyDynamicLink(btnElement) {
             const linkElement = btnElement.previousElementSibling;
             
