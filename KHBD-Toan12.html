@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kế Hoạch Dạy Học Toán 10 - Toàn Tập</title>
+    <title>Kế Hoạch Dạy Học Toán 12 - Toàn Tập</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
@@ -61,7 +61,7 @@
 
         .table-header, .data-row {
             display: grid;
-            grid-template-columns: 140px 110px 90px 1fr;
+            grid-template-columns: 130px 110px 90px 1fr;
             gap: 15px;
             align-items: center;
             min-width: 700px; 
@@ -162,7 +162,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- CHÂN TRANG --- */
         footer { margin-top: auto; font-size: 0.9rem; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 18px;}
         
         .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
@@ -198,7 +197,7 @@
 
     <div class="container">
         <div class="header-title">
-            <h1>KẾ HOẠCH DẠY HỌC - MÔN TOÁN 10</h1>
+            <h1>KẾ HOẠCH DẠY HỌC - MÔN TOÁN 12</h1>
             <div class="subtitle">Phân phối chương trình chi tiết (Toàn tập)</div>
         </div>
 
@@ -232,77 +231,63 @@
 
     <script>
         const lessonData = [
-            // --- CHƯƠNG TRÌNH CHUẨN MÔN TOÁN 10 ---
-            { tuan: "1, 2", tiet: "1-4", soTiet: 4, baiHoc: "Bài 1. Mệnh đề" },
-            { tuan: "2", tiet: "5-6", soTiet: 2, baiHoc: "Bài 5. Giá trị lượng giác của một góc từ 0° đến 180°" },
-            { tuan: "3, 4", tiet: "7-10", soTiet: 4, baiHoc: "Bài 2. Tập hợp và các phép toán trên tập hợp" },
-            { tuan: "4", tiet: "11", soTiet: 1, baiHoc: "Bài tập cuối chương I" },
-            { tuan: "4, 5", tiet: "12-13", soTiet: 2, baiHoc: "Bài 3. Bất phương trình bậc nhất hai ẩn" },
-            { tuan: "5, 6", tiet: "14-17", soTiet: 4, baiHoc: "Bài 6. Hệ thức lượng trong tam giác" },
-            { tuan: "6, 7", tiet: "18-20", soTiet: 3, baiHoc: "Bài 4. Hệ bất phương trình bậc nhất hai ẩn" },
-            { tuan: "7", tiet: "21", soTiet: 1, baiHoc: "Bài tập cuối chương II" },
-            { tuan: "8", tiet: "22", soTiet: 1, baiHoc: "Bài tập cuối chương III" },
-            { tuan: "8", tiet: "23-24", soTiet: 2, baiHoc: "Bài 7. Các khái niệm mở đầu" },
-            { tuan: "9", tiet: "25", soTiet: 1, baiHoc: "Ôn tập giữa HK1" },
-            { tuan: "9", tiet: "26-27", soTiet: 2, baiHoc: "KIỂM TRA GIỮA KÌ I", highlight: true },
-            { tuan: "9", tiet: "28-29", soTiet: 2, baiHoc: "Bài 8. Tổng và hiệu của hai vectơ" },
-            { tuan: "10", tiet: "30-31", soTiet: 2, baiHoc: "Bài 12. Số gần đúng và sai số" },
-            { tuan: "10, 11", tiet: "32-33", soTiet: 2, baiHoc: "Bài 9. Tích của một vectơ với một số" },
-            { tuan: "11", tiet: "34-35", soTiet: 2, baiHoc: "Bài 13. Các số đặc trưng đo xu thế trung tâm" },
-            { tuan: "12", tiet: "36-38", soTiet: 3, baiHoc: "Bài 10. Vectơ trong mặt phẳng toạ độ" },
-            { tuan: "13", tiet: "39-41", soTiet: 3, baiHoc: "Bài 14. Các số đặc trưng đo độ phân tán" },
-            { tuan: "14", tiet: "42-44", soTiet: 3, baiHoc: "Bài 11. Tích vô hướng của hai vectơ" },
-            { tuan: "15", tiet: "45-46", soTiet: 2, baiHoc: "Hoạt động thực hành trải nghiệm: Tìm hiểu một số kiến thức về tài chính" },
-            { tuan: "15, 16", tiet: "47-48", soTiet: 2, baiHoc: "Mạng xã hội: Lợi và hại" },
-            { tuan: "16", tiet: "49", soTiet: 1, baiHoc: "Bài tập cuối chương IV" },
-            { tuan: "16", tiet: "50", soTiet: 1, baiHoc: "Bài tập cuối chương V" },
-            { tuan: "17", tiet: "51-52", soTiet: 2, baiHoc: "Ôn tập cuối HKI" },
-            { tuan: "17", tiet: "53-54", soTiet: 2, baiHoc: "KIỂM TRA HỌC KÌ I", highlight: true },
-            { tuan: "20, 21", tiet: "55-58", soTiet: 4, baiHoc: "Bài 15. Hàm số" },
-            { tuan: "21", tiet: "59-60", soTiet: 2, baiHoc: "Bài 19. Phương trình đường thẳng" },
-            { tuan: "22", tiet: "61-63", soTiet: 3, baiHoc: "Bài 16. Hàm số bậc hai" },
-            { tuan: "23", tiet: "64-66", soTiet: 3, baiHoc: "Bài 20. Vị trí tương đối giữa hai đường thẳng. Góc và khoảng cách" },
-            { tuan: "24", tiet: "67-68", soTiet: 2, baiHoc: "Bài 17. Dấu của tam thức bậc hai" },
-            { tuan: "24, 25", tiet: "69-70", soTiet: 2, baiHoc: "Bài 21. Đường tròn trong mặt phẳng toạ độ" },
-            { tuan: "25", tiet: "71-72", soTiet: 2, baiHoc: "Bài 18. Phương trình quy về phương trình bậc hai" },
-            { tuan: "26", tiet: "73", soTiet: 1, baiHoc: "Bài tập cuối chương VI" },
-            { tuan: "26", tiet: "74", soTiet: 1, baiHoc: "Ôn tập giữa kì II" },
-            { tuan: "26", tiet: "75-76", soTiet: 2, baiHoc: "KIỂM TRA GIỮA KÌ II", highlight: true },
-            { tuan: "26, 27", tiet: "77-80", soTiet: 4, baiHoc: "Bài 23. Quy tắc đếm" },
-            { tuan: "28, 29", tiet: "81-84", soTiet: 4, baiHoc: "Bài 24. Hoán vị, chỉnh hợp và tổ hợp" },
-            { tuan: "29", tiet: "85-86", soTiet: 2, baiHoc: "Bài 25. Nhị thức Newton" },
-            { tuan: "30", tiet: "87", soTiet: 1, baiHoc: "Bài tập cuối chương VIII" },
-            { tuan: "30", tiet: "88-89", soTiet: 2, baiHoc: "Bài 26. Biến cố và định nghĩa cổ điển của xác suất" },
-            { tuan: "31", tiet: "90-92", soTiet: 3, baiHoc: "Thực hành tính xác suất theo định nghĩa cổ điển" },
-            { tuan: "32, 33", tiet: "93-96", soTiet: 4, baiHoc: "Bài 22. Ba đường conic" },
-            { tuan: "33", tiet: "97", soTiet: 1, baiHoc: "Bài tập cuối chương VII" },
-            { tuan: "33", tiet: "98", soTiet: 1, baiHoc: "Ước tính số các thể trong một quần thể" },
-            { tuan: "34", tiet: "99", soTiet: 1, baiHoc: "Bài tập cuối chương IX" },
-            { tuan: "34", tiet: "100-101", soTiet: 2, baiHoc: "Ôn tập cuối HK2" },
-            { tuan: "35", tiet: "102-103", soTiet: 2, baiHoc: "KIỂM TRA HỌC KÌ II", highlight: true },
-            { tuan: "35", tiet: "104-105", soTiet: 2, baiHoc: "Hoạt động thực hành trải nghiệm Một số nội dung cho hoạt động trải nghiệm hình học" },
-            
+            // --- CHƯƠNG TRÌNH CHÍNH KHÓA ---
+            { tuan: "1, 2", tiet: "1-6", soTiet: 6, baiHoc: "Bài 1. Tính đơn điệu và cực trị của hàm số" },
+            { tuan: "3", tiet: "7-9", soTiet: 3, baiHoc: "Bài 2. Giá trị lớn nhất và giá trị nhỏ nhất của hàm số" },
+            { tuan: "4,5", tiet: "10-13", soTiet: 4, baiHoc: "Bài 3. Đường tiệm cận của đồ thị hàm số" },
+            { tuan: "5, 6", tiet: "14-18", soTiet: 5, baiHoc: "Bài 4. Khảo sát sự biến thiên và vẽ đồ thị của hàm số" },
+            { tuan: "7,8", tiet: "19-22", soTiet: 4, baiHoc: "Bài 5. Ứng dụng đạo hàm để giải quyết một số vấn đề liên quan đến thực tiễn" },
+            { tuan: "8", tiet: "23-24", soTiet: 2, baiHoc: "Bài tập cuối chương I" },
+            { tuan: "9", tiet: "25", soTiet: 1, baiHoc: "Ôn tập và kiểm tra giữa kì I" },
+            { tuan: "9", tiet: "26-27", soTiet: 2, baiHoc: "Kiểm tra giữa Học kì I", highlight: true },
+            { tuan: "9,10", tiet: "28-31", soTiet: 4, baiHoc: "Bài 6. Vectơ trong không gian" },
+            { tuan: "10,11", tiet: "32-34", soTiet: 3, baiHoc: "Bài 7. Hệ trục toạ độ trong không gian" },
+            { tuan: "11,12,13", tiet: "35-39", soTiet: 5, baiHoc: "Bài 8. Biểu thức toạ độ của các phép toán vectơ" },
+            { tuan: "13", tiet: "40", soTiet: 1, baiHoc: "Bài 9. Khoảng biến thiên và khoảng tứ phân vị" },
+            { tuan: "13,14", tiet: "41-42", soTiet: 2, baiHoc: "Bài tập cuối chương II" },
+            { tuan: "14", tiet: "43-44", soTiet: 2, baiHoc: "Bài 10. Phương sai và độ lệch chuẩn" },
+            { tuan: "15", tiet: "45", soTiet: 1, baiHoc: "Bài tập cuối chương III" },
+            { tuan: "15", tiet: "46-47", soTiet: 2, baiHoc: "Khảo sát và vẽ đồ thị hàm số với phần mềm GeoGebra" },
+            { tuan: "16", tiet: "48", soTiet: 1, baiHoc: "Vẽ vectơ tổng của ba vectơ trong không gian bằng phần mềm GeoGebra" },
+            { tuan: "16", tiet: "49-50", soTiet: 2, baiHoc: "Độ dài gang tay (gang tay của bạn dài bao nhiêu?)" },
+            { tuan: "17", tiet: "51-52", soTiet: 2, baiHoc: "Ôn tập cuối học Kì I" },
+            { tuan: "17", tiet: "53-54", soTiet: 2, baiHoc: "Kiểm tra cuối Học kì I", highlight: true },
+            { tuan: "20,21", tiet: "55-59", soTiet: 5, baiHoc: "Bài 14. Phương trình mặt phẳng" },
+            { tuan: "21,22", tiet: "60-63", soTiet: 4, baiHoc: "Bài 11. Nguyên hàm" },
+            { tuan: "23,24", tiet: "64-67", soTiet: 4, baiHoc: "Bài 12. Tích phân" },
+            { tuan: "24,25", tiet: "68-72", soTiet: 5, baiHoc: "Bài 13. Ứng dụng hình học của tích phân" },
+            { tuan: "26", tiet: "73-74", soTiet: 2, baiHoc: "Bài tập cuối chương IV" },
+            { tuan: "26", tiet: "75", soTiet: 1, baiHoc: "Ôn tập kiểm tra giữa HKII" },
+            { tuan: "26", tiet: "76-77", soTiet: 2, baiHoc: "Kiểm tra giữa Học kì II", highlight: true },
+            { tuan: "27,28", tiet: "78-82", soTiet: 5, baiHoc: "Bài 15. Phương trình đường thẳng trong không gian" },
+            { tuan: "28,29", tiet: "83-85", soTiet: 3, baiHoc: "Bài 16. Công thức tính góc trong không gian" },
+            { tuan: "29,30", tiet: "86-89", soTiet: 4, baiHoc: "Bài 18. Xác suất có điều kiện" },
+            { tuan: "31", tiet: "90-92", soTiet: 3, baiHoc: "Bài 17. Phương trình mặt cầu" },
+            { tuan: "32,33", tiet: "93-96", soTiet: 4, baiHoc: "Bài 19. Công thức xác suất toàn phần và công thức Bayes" },
+            { tuan: "33", tiet: "97-98", soTiet: 2, baiHoc: "Bài tập cuối chương V" },
+            { tuan: "34", tiet: "99", soTiet: 1, baiHoc: "Bài tập cuối chương VI" },
+            { tuan: "34", tiet: "100-101", soTiet: 2, baiHoc: "Ôn tập cuối Học kì II" },
+            { tuan: "35", tiet: "102-103", soTiet: 2, baiHoc: "Kiểm tra cuối Học kì II", highlight: true },
+            { tuan: "35", tiet: "104", soTiet: 1, baiHoc: "Tính nguyên hàm và tích phân với phần mềm GeoGebra. Tính gần đúng tích phân bằng ph" },
+            { tuan: "35", tiet: "105", soTiet: 1, baiHoc: "Vẽ đồ hoạ 3D với phần mềm GeoGebra" },
+
             // --- PHẦN CHUYÊN ĐỀ HỌC TẬP ---
-            { divider: "PHẦN CHUYÊN ĐỀ HỌC TẬP TOÁN 10" },
-            { tuan: "1,2,3,4,5", tiet: "1-5", soTiet: 5, baiHoc: "CĐ1. Bài 1. Hệ phương trình bậc nhất hai ẩn" },
-            { tuan: "6,7,8,9", tiet: "6-9", soTiet: 4, baiHoc: "CĐ1. Bài 2. Ứng dụng của hệ phương trình bậc nhất 3 ẩn" },
-            { tuan: "10,11", tiet: "10-11", soTiet: 2, baiHoc: "CĐ1.Bài tập cuối chuyên đề 1" },
-            { tuan: "12,13,14,15", tiet: "12-15", soTiet: 4, baiHoc: "CĐ2. Bài 3. Phương pháp quy nạp toán học" },
-            { tuan: "16,17,18,19,20", tiet: "16-20", soTiet: 5, baiHoc: "CĐ2. Bài 4. Nhị thức Newton" },
-            { tuan: "21", tiet: "21", soTiet: 1, baiHoc: "CĐ2. Bài tập cuối chuyên đề 2" },
-            { tuan: "22,23,24", tiet: "22-24", soTiet: 3, baiHoc: "CĐ3. Bài 5. Elip" },
-            { tuan: "25,26,27", tiet: "25-27", soTiet: 3, baiHoc: "CĐ3. Bài 6. Hypebol" },
-            { tuan: "28,29", tiet: "28-29", soTiet: 2, baiHoc: "CĐ3. Bài 7. Parabol" },
-            { tuan: "30,31", tiet: "30-31", soTiet: 2, baiHoc: "CĐ3. Bài 8. Sự thống nhất giữa 3 đường conic" },
-            { tuan: "32", tiet: "32", soTiet: 1, baiHoc: "CĐ3.Bài tập cuối chuyên đề 3" },
-            { tuan: "33", tiet: "33", soTiet: 1, baiHoc: "Kiểm tra cuối chuyên đề", highlight: true },
-            { tuan: "34,35", tiet: "34-35", soTiet: 2, baiHoc: "Ôn tập" }
+            { divider: "PHẦN CHUYÊN ĐỀ HỌC TẬP TOÁN 12" },
+            { tuan: "1,2,3,4,5", tiet: "1-5", soTiet: 5, baiHoc: "CĐ. Bài 3. Vận dụng hệ bất phương trình bậc nhất để giải quyết một số bài toán quy hoạch tuyến tính" },
+            { tuan: "6,7,8,9,10", tiet: "6-10", soTiet: 5, baiHoc: "CĐ. Bài 4. Vận dụng đạo hàm để giải quyết một số bài toán tối ưu" },
+            { tuan: "11,12", tiet: "11-12", soTiet: 2, baiHoc: "CĐ. Bài tập cuối chuyên đề 2" },
+            { tuan: "13,14,15", tiet: "13-15", soTiet: 3, baiHoc: "CĐ. Bài 5. Tiền tệ. Lãi suất" },
+            { tuan: "16,17,18", tiet: "16-18", soTiet: 3, baiHoc: "CĐ. Bài 6. Tín dụng. Vay nợ" },
+            { tuan: "19,20,21", tiet: "19-21", soTiet: 3, baiHoc: "CĐ. Bài 7. Đầu tư tài chính. Lập kế hoạch tài chính cá nhân" },
+            { tuan: "22,23", tiet: "22-23", soTiet: 2, baiHoc: "CĐ. Bài tập cuối chuyên đề 3" },
+            { tuan: "24,25,26,27,28", tiet: "24-28", soTiet: 5, baiHoc: "CĐ. Bài 1. Biến ngẫu nhiên rời rạc và các số đặc trưng" },
+            { tuan: "29,30,31,32,33", tiet: "29-33", soTiet: 5, baiHoc: "CĐ. Bài 2. Biến ngẫu nhiên có phân bố nhị thức và áp dụng" },
+            { tuan: "34,35", tiet: "34-35", soTiet: 2, baiHoc: "CĐ. Bài tập cuối chuyên đề 2" }
         ];
 
         const container = document.getElementById('data-container');
         
         lessonData.forEach((item, index) => {
-            // Giảm độ trễ để các dòng sau hiển thị nhanh hơn
             const delay = index < 40 ? index * 0.02 : 0; 
             
             if (item.divider) {
